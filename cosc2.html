@@ -3,8 +3,24 @@ layout: default
 title: "Upcoming Deadlines"
 shortitle: "deadlines"
 ---
+<div class='twitter-block'>
 <a class="twitter-timeline"
    data-height="1080"
    data-theme="dark"
    href="https://twitter.com/drripark/lists/cslist"
    data-chrome="noheader nofooter noborders transparent"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<script type="text/javascript">
+jQuery('.twitter-block').on('DOMSubtreeModified propertychange',"#twitter-widget-0", function() {
+		hideTweetMedia(this);
+});
+
+var hideTweetMedia = function(domParent) {
+    jQuery(domParent).find(".twitter-timeline").contents().find(".timeline-Tweet-media").css("display", "none");
+    jQuery(".twitter-block").css("height", "100%");
+	jQuery('#twitter-widget-0').on('DOMSubtreeModified propertychange', '.timeline-TweetList', function() {
+		hidetweetMedia(this);
+	});
+}
+		</script>
