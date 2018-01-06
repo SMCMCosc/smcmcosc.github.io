@@ -13,14 +13,8 @@ shortitle: "deadlines"
 
 <script type="text/javascript">
 jQuery('.twitter-block').on('DOMSubtreeModified propertychange',"#twitter-widget-0", function() {
-		hideTweetMedia(this);
-});
-
-var hideTweetMedia = function(domParent) {
-    jQuery(domParent).find(".twitter-timeline").contents().find(".timeline-Tweet-media").css("display", "none");
-    jQuery(".twitter-block").css("height", "100%");
-	jQuery('#twitter-widget-0').on('DOMSubtreeModified propertychange', '.timeline-TweetList', function() {
-		hidetweetMedia(this);
-	});
+        jQuery(".twitter-timeline").contents().find(".timeline-Tweet-media").css("display", "none");
+        jQuery(".twitter-block").css("height", "100%");
+    });
 }
 		</script>
