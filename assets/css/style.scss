@@ -3,6 +3,9 @@
 
 @import "{{ site.theme }}";
 
+body{
+  font-size: 36px;
+}
 .container {
   max-width: 1080px;
 }
