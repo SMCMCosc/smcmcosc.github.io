@@ -11,24 +11,20 @@ shortitle: "tweets"
    data-chrome="noheader nofooter noborders transparent"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
-<script type="text/javascript">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict();
+    jQuery(document).ready( function() {
+    jQuery('.twitter-block').on('DOMSubtreeModified propertychange','iframe.twitter-timeline', function(event) {
 
-		jQuery('.twitter-block').delegate('#twitter-widget-0','DOMSubtreeModified propertychange', function() {
-
-			hideTweetMedia();
-
-		});
-		var hideTweetMedia = function() {
-
-			jQuery('.twitter-block').find('.twitter-timeline').contents().find('.timeline-Tweet-media').css('display', 'none');
-
-			jQuery('.twitter-block').css('height', '100%');
-
-			jQuery('.twitter-block').find('.twitter-timeline').contents().find('.timeline-TweetList').bind('DOMSubtreeModified propertychange', function() {
-
-				hideTweetMedia(this);
-
-			});
-
-		}
-		</script>
+      hideTweetMedia(jQuery(event.currentTarget).prop('id'));
+    });
+    var hideTweetMedia = function(timelineId) {
+    console.log(jQuery('#'+ timelineId));
+    jQuery('#' + timelineId).contents().find('.timeline-Tweet-media').css('display', 'none');
+    jQuery('#' + timelineId).contents().find('.timeline-TweetList').bind('DOMSubtreeModified propertychange', function() {
+      hideTweetMedia(timelineId);
+      });
+    }
+});
+</script>
