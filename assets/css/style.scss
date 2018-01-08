@@ -21,6 +21,8 @@ header h1:before {
 #main_content h1 {
   font-size: 48px;
 }
+
+/* from https://css-tricks.com/html5-progress-element/*/
 progress[value] {
   /* Reset the default appearance */
   -webkit-appearance: none;
