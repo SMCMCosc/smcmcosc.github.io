@@ -4,22 +4,22 @@
 @import "{{ site.theme }}";
 
 body{
-  font-size: 36px;
+  font-size: 48px;
 }
 .container {
   max-width: 1920px;
 }
 header h1 {
-  font-size: 48px;
+  font-size: 72px;
 }
 
 header h1:before {
   content: "./ ";
-  font-size: 48px;
+  font-size: 72px;
 }
 
 #main_content h1 {
-  font-size: 48px;
+  font-size: 72px;
 }
 
 /* from https://css-tricks.com/html5-progress-element/*/
