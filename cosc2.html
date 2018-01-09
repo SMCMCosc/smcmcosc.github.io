@@ -16,7 +16,7 @@ shortitle: "tweets"
 <a class="twitter-timeline"
    data-height="1080"
    data-theme="dark"
-   href="https://twitter.com/drripark/lists/smcmgamedev13"
+   href="https://twitter.com/drripark/lists/cslist2"
    data-chrome="noheader nofooter noborders transparent noscrollbar"></a>
    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
@@ -37,5 +37,21 @@ shortitle: "tweets"
       hideTweetMedia(timelineId);
       });
     }
+});
+</script>
+<script type="text/javascript">
+  jQuery.noConflict();
+  jQuery(document).ready( function() {
+  jQuery('.twitter-block2').on('DOMSubtreeModified propertychange','iframe.twitter-timeline', function(event) {
+
+    hideTweetMedia(jQuery(event.currentTarget).prop('id'));
+  });
+  var hideTweetMedia = function(timelineId) {
+  console.log(jQuery('#'+ timelineId));
+  jQuery('#' + timelineId).contents().find('.timeline-Tweet-media').css('display', 'none');
+  jQuery('#' + timelineId).contents().find('.timeline-TweetList').bind('DOMSubtreeModified propertychange', function() {
+    hideTweetMedia(timelineId);
+    });
+  }
 });
 </script>
