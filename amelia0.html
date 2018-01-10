@@ -1,0 +1,25 @@
+---
+layout: default
+title: "Title"
+shortitle: "Title"
+---
+<style>
+body{
+text-align: center;
+font-size: 128px;
+}
+</style>
+
+<script>
+var myArray = [
+  "Alan",
+  "Lindsay",
+  "Nora",
+  "Amelia",
+  "Amelia"
+];
+
+var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+
+document.body.innerHTML = "Hi " + randomItem + "!";
+</script>
